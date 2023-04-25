@@ -39,4 +39,11 @@ if(!empty($_GET)){
 		$lastpost = new PostController();
 		print_r($lastpost->getPost($l));
 	}
+
+	$op = in_array('_op', array_keys(filter_input_array(INPUT_GET)));
+	if($op){
+		$o = filter_input_array(INPUT_GET)["pid"];
+		$openpost = new PostController();
+		print_r($openpost->getPost(1, $o));
+	}
 }
