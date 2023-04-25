@@ -37,7 +37,6 @@
 		</header>
 		<nav class="navbar navbar-expand-lg bg-body-tertiary">
 		  <div class="container-fluid">
-		    <a class="navbar-brand" href="#">Merequetengue</a>
 		    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 		      <span class="navbar-toggler-icon"></span>
 		    </button>
@@ -46,14 +45,29 @@
 		        <li class="nav-item">
 		          <a class="nav-link active" aria-current="page" href="#">Inicio</a>
 		        </li>
+		        <?php if(!is_null($ua) && $ua->sv){?>
 		        <li class="nav-item">
-		          <button type="button" class="nav-link btn btn-link" onclick="app.views('inisession')" aria-current="page" href="#">Iniciar sesion</button>
+		          <button class="nav-link btn btn-link"
+		          type="button" aria-current="page"
+		          onclick="app.views('newpost')">
+		          		Nueva publicacion
+		          </button>
 		        </li>
+		    	<?php }?>
 		      </ul>
 		      <ul class="navbar-nav me-auto mb-2 d-flex">
+		      	<?php if(is_null($ua) || !$ua->sv){?>
+		        <li class="nav-item">
+		          <button type="button" class="nav-link btn btn-link" 
+		          		onclick="app.views('inisession')" aria-current="page" href="#">
+		          		Iniciar sesion
+		          	</button>
+		        </li>
+
+		    	<?php }else{ ?>
 		      	<li class="nav-item dropdown">
 		          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-		            Nombre de Usuario
+		            <?=$ua->name?>
 		          </a>
 		          <ul class="dropdown-menu">
 		            <li><a class="dropdown-item" href="#">Action</a></li>
@@ -65,6 +79,7 @@
 		        		</button></li>
 		          </ul>
 		        </li>
+		    	<?php } ?>
 		      </ul>
 		    </div>
 		  </div>

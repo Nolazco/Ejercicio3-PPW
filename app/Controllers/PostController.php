@@ -26,4 +26,12 @@
 						    ->get();
             return $result;
 		}
+
+		public function newPost($datos){
+			$post = new posts();
+			$post->valores = [$datos['uid'], $datos['title'], $datos['body']];
+			$result = $post->create();
+			return;
+			die();
+		}
 	}

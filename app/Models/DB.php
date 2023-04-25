@@ -101,4 +101,9 @@
 			}
 			return json_encode($result);
 		}
+
+		public function create(){
+			$sql = "insert into" . str_replace("Models\\", "", get_class($this)) .
+			
+		}
 	}

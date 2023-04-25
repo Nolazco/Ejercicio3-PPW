@@ -15,6 +15,15 @@ if(!empty($_POST)){
 		$userLogin = new LoginController();
 		print_r($userLogin->userAuth($datos));
 	}
+
+	//*******************Nuevo post */
+	$gp = in_array('_gp', array_keys(filter_input_array(INPUT_POST)));
+	if($gp){
+		$datos = filter_input_array(INPUT_POST, FILTER_SANITIZE_SPECIAL_CHARS);
+		$post = new PostController();
+		$post->newPost($datos);
+		//header('Location: /resources/views/autores/myposts.php');
+	}
 }
 
 if(!empty($_GET)){
