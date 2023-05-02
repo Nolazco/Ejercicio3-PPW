@@ -43,7 +43,7 @@
 		    <div class="collapse navbar-collapse" id="navbarSupportedContent">
 		      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
 		        <li class="nav-item">
-		          <a class="nav-link active" aria-current="page" href="#">Inicio</a>
+		          <a class="nav-link active" aria-current="page" href="/">Inicio</a>
 		        </li>
 		        <?php if(!is_null($ua) && $ua->sv){?>
 		        <li class="nav-item">
@@ -51,6 +51,13 @@
 		          type="button" aria-current="page"
 		          onclick="app.views('newpost')">
 		          		Nueva publicacion
+		          </button>
+		        </li>
+		        <li class="nav-item">
+		          <button class="nav-link btn btn-link"
+		          type="button" aria-current="page"
+		          onclick="app.views('myposts')">
+		          		Mis publicaciones
 		          </button>
 		        </li>
 		    	<?php }?>
@@ -86,7 +93,7 @@
 		</nav>
 	<?php
 }
-function scripts(){
+function scripts($script=""){
 	?>
 	</div>
 <script src="/resources/js/jquery-3.6.3.js"></script>
@@ -94,6 +101,9 @@ function scripts(){
 <script src="/resources/js/popper.js"></script>
 <script src="/resources/js/app.js"></script>
 <?php
+	if($script != ""){
+		echo '<script src="/resources/js/'. $script . '.js"></script>';
+	}
 }
 	function foot(){
 ?>

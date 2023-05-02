@@ -103,7 +103,12 @@
 		}
 
 		public function create(){
-			$sql = "insert into" . str_replace("Models\\", "", get_class($this)) .
-			
+			$sql = "insert into " . str_replace("Models\\", "", get_class($this)) .
+					' (' . implode(",", $this->campos) . ') values (' . 
+					trim(str_replace("&", "?,", str_pad("", count($this->campos), "&")),",") . ');';
+
+			$stmt = $this->table->prepare($sql);
+			$stmt->bind_param(str_pad("", count($this->campos), "s"),...$this->valores);
+			return $stmt->execute();
 		}
 	}

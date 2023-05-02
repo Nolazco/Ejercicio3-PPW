@@ -7,7 +7,8 @@ const app = {
 		prevpost : "/app/app.php?_pp",
 		lastpost : "/app/app.php?_lp",
 		openpost : "/app/app.php?_op",
-		newpost : "/resources/views/autores/newpost.php"
+		newpost : "/resources/views/autores/newpost.php",
+		myposts : "/resources/views/autores/myposts.php"
 	},
 	pp : $("#prev-post"),
 	lp : $("#content"),

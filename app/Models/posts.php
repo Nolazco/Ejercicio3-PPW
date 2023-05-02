@@ -1,6 +1,9 @@
 <?php 
 
 namespace Models;
+
+use Models\DB;
+
 class posts extends DB {
 	public $table;
 	function __construct(){
@@ -8,7 +11,7 @@ class posts extends DB {
 		$this->table = $this->db_connect();
 	}
 
-	protected $campos = ['userId', 'title', 'body', 'created_at'];
+	protected $campos = ['userId', 'title', 'body'];
 	
 	public $valores = [];
 }

@@ -22,7 +22,7 @@ if(!empty($_POST)){
 		$datos = filter_input_array(INPUT_POST, FILTER_SANITIZE_SPECIAL_CHARS);
 		$post = new PostController();
 		$post->newPost($datos);
-		//header('Location: /resources/views/autores/myposts.php');
+		header('Location: /resources/views/autores/newpost.php');
 	}
 }
 
