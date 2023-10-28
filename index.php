@@ -2,4 +2,3 @@
 
 header("Location: ./resources/views/inicio.php");
 
-d
